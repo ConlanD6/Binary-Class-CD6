@@ -18,9 +18,17 @@ class Binary{
 
         Binary operator + (const bool b2)   const {return Binary((state || b2));}
 
+        Binary operator - (const Binary b2) const {return Binary(!(state || b2.state));}
+
+        Binary operator - (const bool b2)   const {return Binary(!(state || b2));}
+
         Binary operator * (const Binary b2) const {return Binary((state && b2.state));}
 
         Binary operator * (const bool b2)   const {return Binary((state && b2));}
+
+        Binary operator / (const Binary b2) const {return Binary(!(state && b2.state));}
+
+        Binary operator / (const bool b2)   const {return Binary(!(state && b2));}
 
         Binary operator ! ()                const {return Binary(!state);}
 
